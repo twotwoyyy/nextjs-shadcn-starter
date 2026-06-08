@@ -56,7 +56,6 @@ export function ProfileForm() {
     toast.success("제출 완료!", {
       description: `${values.name}님의 정보가 저장되었습니다.`,
     })
-    console.log(values)
   }
 
   return (
