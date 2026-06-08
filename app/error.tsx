@@ -12,14 +12,16 @@ export default function Error({
   reset: () => void
 }) {
   useEffect(() => {
-    console.error(error)
+    if (process.env.NODE_ENV === "development") {
+      console.error(error)
+    }
   }, [error])
 
   return (
     <Container className="flex flex-col items-center justify-center min-h-[60vh] gap-4 text-center">
       <h2 className="text-2xl font-semibold">오류가 발생했습니다</h2>
       <p className="text-muted-foreground">
-        {error.message || "예상치 못한 오류가 발생했습니다."}
+        예상치 못한 오류가 발생했습니다.
       </p>
       <Button onClick={reset} className="mt-2">
         다시 시도
